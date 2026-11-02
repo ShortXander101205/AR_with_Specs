@@ -1,0 +1,24 @@
+# BEGIN Lens Studio managed Agents-Docs block
+.mcp.json
+.cursor/mcp.json
+.vscode/mcp.json
+.codex/config.toml
+.claude/settings.local.json
+ls-live-instance.json
+ls-live-instance.json.tmp
+# END Lens Studio managed Agents-Docs block
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node / MCP
+node_modules/
+npm-debug.log*
+
+# Lens Studio caches and temporary build artifacts
+Cache/
+Public/
+temp/
+*.log
+*.autosave
+*.bak
