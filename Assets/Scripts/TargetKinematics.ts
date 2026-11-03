@@ -485,4 +485,30 @@ export class TargetKinematics extends BaseScriptComponent {
             }
         }
     }
+
+    // =========================================================================
+    // PUBLIC TELEMETRY ACCESSORS (SPEC-FR-002)
+    // =========================================================================
+
+    /**
+     * Returns instantaneous linear velocity magnitude in meters per second (m/s).
+     * Complies with Feature 2 SPEC-FR-002 telemetry readout interface.
+     */
+    public getVelocityMagnitude(): number {
+        return Math.sqrt(this.instantaneousVelocity.lengthSquared) / 100.0;
+    }
+
+    /**
+     * Copies instantaneous linear velocity vector (in cm/s) into the provided vector
+     * or returns a new vec3 instance.
+     */
+    public getInstantaneousVelocity(out?: vec3): vec3 {
+        if (out) {
+            out.x = this.instantaneousVelocity.x;
+            out.y = this.instantaneousVelocity.y;
+            out.z = this.instantaneousVelocity.z;
+            return out;
+        }
+        return new vec3(this.instantaneousVelocity.x, this.instantaneousVelocity.y, this.instantaneousVelocity.z);
+    }
 }

@@ -58,7 +58,7 @@
       {}
   InputLines:
     - '// @ui {"widget":"group_start", "label":"Kinematics Configuration"}'
-    - '// @input float velocity = 10 {"label":"Velocity (m/s)", "hint":"Target travel speed in meters per second (5.0 to 35.0 m/s)", "widget":"slider", "min":5, "max":35, "step":0.5}'
+    - '// @input float velocity = 10 {"label":"Velocity (m/s)", "hint":"Target travel speed in meters per second (0.0 to 35.0 m/s)", "widget":"slider", "min":0, "max":35, "step":0.5}'
     - '// @input float pathLength = 3 {"label":"Path Length (m)", "hint":"Stroke distance between boundaries in meters (2.0 to 5.0 m)", "widget":"slider", "min":2, "max":5, "step":0.1}'
     - '// @input SceneObject targetObject {"label":"Target Entity", "hint":"SceneObject representing the drone/target entity to displace"}'
     - '// @input float motionMode {"label":"Motion Mode", "hint":"Ping-Pong linear oscillation vs Continuous Closed-Loop", "widget":"combobox", "values":[{"label":"Linear Ping-Pong", "value":0}, {"label":"Continuous Closed-Loop", "value":1}]}'

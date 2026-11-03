@@ -1,4 +1,5 @@
 import { TargetKinematics } from "./TargetKinematics";
+import { TargetTelemetry } from "./TargetTelemetry";
 
 /**
  * SpatialRangeSetup.ts
@@ -95,7 +96,46 @@ export class SpatialRangeSetup extends BaseScriptComponent {
             this.kinematicsController.showDebugTrajectory = true;
         }
 
-        print("[SpatialRangeSetup] Feature 1 Spatial Test Range hierarchy successfully established!");
+        // 4. Locate or create 'TelemetryHUD' (Feature 2)
+        let telemetryHud = this.findSceneObjectByName("TelemetryHUD");
+        if (!telemetryHud) {
+            telemetryHud = global.scene.createSceneObject("TelemetryHUD");
+            telemetryHud.setParent(this.kinematicTarget);
+            print("[SpatialRangeSetup] Created 'TelemetryHUD' SceneObject parented to 'KinematicTarget'.");
+        } else {
+            telemetryHud.setParent(this.kinematicTarget);
+        }
+
+        const hudTransform = telemetryHud.getTransform();
+        hudTransform.setLocalPosition(new vec3(0.0, 25.0, 0.0)); // 25cm above target
+        hudTransform.setLocalRotation(quat.quatIdentity());
+        hudTransform.setLocalScale(vec3.one());
+
+        // 5. Attach or retrieve Component.Text
+        let textComp = telemetryHud.getComponent("Component.Text") as Component.Text;
+        if (!textComp) {
+            textComp = telemetryHud.createComponent("Component.Text") as Component.Text;
+            print("[SpatialRangeSetup] Attached 'Component.Text' to 'TelemetryHUD'.");
+        }
+
+        // 6. Attach or retrieve TargetTelemetry component
+        let telemetryController = telemetryHud.getComponent(TargetTelemetry.getTypeName());
+        if (!telemetryController) {
+            telemetryController = telemetryHud.createComponent(TargetTelemetry.getTypeName());
+            print("[SpatialRangeSetup] Attached 'TargetTelemetry' component to 'TelemetryHUD'.");
+        }
+
+        if (telemetryController) {
+            telemetryController.targetObject = this.kinematicTarget;
+            telemetryController.telemetryText = textComp;
+            telemetryController.baseConfidence = 95.0;
+            telemetryController.targetId = "UAV-01";
+            telemetryController.verticalOffset = 25.0;
+            telemetryController.show3DReticle = true;
+            telemetryController.enableDynamicScaling = true;
+        }
+
+        print("[SpatialRangeSetup] Feature 1 & Feature 2 Scene Graph hierarchy successfully established!");
     }
 
     /**
