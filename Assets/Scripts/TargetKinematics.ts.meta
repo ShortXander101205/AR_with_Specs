@@ -1,0 +1,69 @@
+- !<AssetImportMetadata/b51de30d-1a16-4723-a79b-23dfea2af195>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> f3bff679-865c-45b7-9197-6a1a8b3d8194
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> f3bff679-865c-45b7-9197-6a1a8b3d8194
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> b4032bce-3b2c-4e60-af44-86cfd413c1ed
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/b4032bce-3b2c-4e60-af44-86cfd413c1ed>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 756c7859-cdac-4615-b666-a3b9c922927c
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    autoOrientTarget: false
+    motionAxis: false
+    motionMode: false
+    pathLength: false
+    showDebugTrajectory: false
+    smoothingZone: false
+    targetObject: false
+    velocity: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - velocity: !<float> 10.000000
+      pathLength: !<float> 3.000000
+      targetObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      motionMode: !<float> 0.000000
+      motionAxis: !<Vec3> {x: 1.000000, y: 0.000000, z: 0.000000}
+      smoothingZone: 0.400000
+      autoOrientTarget: true
+      showDebugTrajectory: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"group_start", "label":"Kinematics Configuration"}'
+    - '// @input float velocity = 10 {"label":"Velocity (m/s)", "hint":"Target travel speed in meters per second (5.0 to 35.0 m/s)", "widget":"slider", "min":5, "max":35, "step":0.5}'
+    - '// @input float pathLength = 3 {"label":"Path Length (m)", "hint":"Stroke distance between boundaries in meters (2.0 to 5.0 m)", "widget":"slider", "min":2, "max":5, "step":0.1}'
+    - '// @input SceneObject targetObject {"label":"Target Entity", "hint":"SceneObject representing the drone/target entity to displace"}'
+    - '// @input float motionMode {"label":"Motion Mode", "hint":"Ping-Pong linear oscillation vs Continuous Closed-Loop", "widget":"combobox", "values":[{"label":"Linear Ping-Pong", "value":0}, {"label":"Continuous Closed-Loop", "value":1}]}'
+    - '// @input vec3 motionAxis = {1,0,0} {"label":"Motion Axis", "hint":"Direction vector of flight path in local anchor space"}'
+    - '// @input float smoothingZone = 0.4 {"label":"Smoothing Zone (m)", "hint":"Boundary buffer distance for turnaround deceleration (0.1 to 1.0 m)", "widget":"slider", "min":0.1, "max":1, "step":0.05}'
+    - '// @input bool autoOrientTarget = true {"label":"Auto-Orient Target", "hint":"Align target forward heading with instantaneous velocity vector"}'
+    - '// @input bool showDebugTrajectory = true {"label":"Show Debug Trajectory", "hint":"Draw real-time flight path and boundary markers in AR"}'
+    - '// @ui {"widget":"group_end"}'

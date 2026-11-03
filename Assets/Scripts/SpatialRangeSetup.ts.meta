@@ -1,0 +1,54 @@
+- !<AssetImportMetadata/be9953c4-c906-46c0-a69d-1ec785bc5f00>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 2cd08d06-6e3a-468d-8e0b-feebc6704bf5
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 2cd08d06-6e3a-468d-8e0b-feebc6704bf5
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 21935945-b7a1-4c63-979f-d50cd2cfbfa9
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/21935945-b7a1-4c63-979f-d50cd2cfbfa9>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: ac8830a2-5b84-4e6c-a956-7fd4d7146a78
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    anchorDistance: false
+    anchorElevation: false
+    autoProvisionHierarchy: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - autoProvisionHierarchy: true
+      anchorDistance: 2.500000
+      anchorElevation: -0.200000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"group_start", "label":"Spatial Test Range Auto-Setup"}'
+    - '// @input bool autoProvisionHierarchy = true {"label":"Auto-Provision Hierarchy", "hint":"Automatically create World Anchor and Kinematic Target nodes if missing"}'
+    - '// @input float anchorDistance = 2.5 {"label":"Anchor Distance (m)", "hint":"Forward placement distance of World Anchor in front of user (default: 2.5m)", "widget":"slider", "min":1, "max":5, "step":0.25}'
+    - '// @input float anchorElevation = -0.2 {"label":"Anchor Elevation (m)", "hint":"Vertical height offset relative to camera eye-level (default: -0.2m / slightly below eyes)", "widget":"slider", "min":-1.5, "max":1, "step":0.1}'
+    - '// @ui {"widget":"group_end"}'
